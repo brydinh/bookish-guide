@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 function CreateConfig(props) {
   const[config, setConfig] = useState({
@@ -35,6 +35,7 @@ function CreateConfig(props) {
 
   return (
     <div>
+      <h4>Add New Config</h4>
       <form>
 
         <label>Key 1:</label>

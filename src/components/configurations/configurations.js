@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './configurations.css';
 
 class Configurations extends Component {
   constructor() {
@@ -14,7 +13,7 @@ class Configurations extends Component {
       .then(res => res.json())
       .then(configurations => this.setState({
         configurations
-      }, () => console.log("Configs fetched...", configurations)));
+      }));
   }
 
   render() {

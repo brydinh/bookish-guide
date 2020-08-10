@@ -1,6 +1,5 @@
 import React from 'react';
 import Config from "./components/configurations/configurations";
-import './App.css';
 
 function App() {
   return (

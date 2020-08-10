@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Select from "react-select";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 
 function ConfigForm(props) {
   const[config, setConfig] = useState({
@@ -10,6 +10,8 @@ function ConfigForm(props) {
     minFloat: "",
     maxFloat: ""
   });
+
+  const {register, handleSubmit, watch, errors} = useForm();
 
   // TODO Have POST reqs work w the website, updates the list as well
   function handleChange(event) {
@@ -53,34 +55,22 @@ function ConfigForm(props) {
     });
   }
 
-
   // TODO: Populate comboboxes via config file
-  const options1 = [
-    {value: 'Accord', label: 'Accord' },
-    {value: 'Civic', label: 'Civic' }
-  ];
-
-  const options2 = [
-  { value: 'V4', label: 'V4' },
-  { value: 'V6', label: 'V6' }
-  ];
-
-  const options3 = [
-  { value: 'Model1', label: 'Model1' },
-  { value: 'Model2', label: 'Model2' }
-  ];
+  const options1 = ["Accord", "Civic", "HR-V", "Odyssey", "Insight", "Pilot", "Passport"];
+  const options2 = ["V4", "V6", "V8"];
+  const options3 = ["Model1", "Model2", "Model3", "Model4", "Model1-6", "Model2-6"];
 
   function submitConfig(event) {
-    // TODO: Validate form
+    // TODO: Add Validations for form
 
-    axios.post("/configs", config)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-
+    console.log(config);
+    // axios.post("/configs", config)
+    //   .then(res => {
+    //     console.log(res);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
 
     // props.onAdd(config);
     // event.preventDefault();
@@ -92,11 +82,26 @@ function ConfigForm(props) {
       <form>
 
         <label>Key 1:</label>
-        <Select name="key1" onChange={handleSelectChange} options={options1}/>
-        <br />
+        <select name="key1">
+          <option>Select...</option>
+        {options1.map((option) => {
+              return (
+                <option value={option}>{option}</option>
+              );
+        })}
+        </select>
 
+        <br />
         <label>Key 2:</label>
-        <Select name="key2" onChange={handleSelectChange2} options={options2}/>
+        <select name="key2">
+          <option>Select...</option>
+        {options2.map((option) => {
+              return (
+                <option value={option}>{option}</option>
+              );
+        })}
+        </select>
+
         <br />
 
         <label>Key 3:</label>
@@ -105,6 +110,7 @@ function ConfigForm(props) {
           onChange={handleChange}
           value={config.minFloat}
           placeholder="Center"
+          ref={register({ required: true})}
         />
 
         <input
@@ -112,14 +118,22 @@ function ConfigForm(props) {
           onChange={handleChange}
           value={config.maxFloat}
           placeholder="Span"
+          ref={register({ required: true})}
         />
         <br />
 
         <label>Value:</label>
-        <Select name="value" onChange={handleSelectChange3} options={options3}/>
+        <select name="value">
+          <option>Select...</option>
+        {options3.map((option) => {
+              return (
+                <option value={option}>{option}</option>
+              );
+        })}
+        </select>
         <br />
 
-        <button onClick={submitConfig}>Add</button>
+        <button onClick={handleSubmit(submitConfig)}>Add</button>
       </form>
     </div>
   )

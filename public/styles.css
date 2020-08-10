@@ -5,6 +5,16 @@ body {
     sans-serif;
 }
 
+/* form {
+  position: relative;
+  width: 480px;
+  margin: 30px auto 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+} */
+
 ul {
   list-style: none;
   padding: 0;
@@ -32,3 +42,7 @@ li {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+/* .Select {
+  background-color: black;
+} */

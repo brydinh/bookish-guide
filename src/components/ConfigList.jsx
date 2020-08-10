@@ -20,7 +20,7 @@ class Configurations extends Component {
   render() {
     return (
       <div>
-      <h4> Configurations </h4>
+      <h4>Configurations</h4>
       <ul>
         {this.state.configurations.map(config =>
           <li key = {config.config_id}>

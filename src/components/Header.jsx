@@ -3,7 +3,7 @@ import React from "react";
 function Header() {
   return (
     <header>
-      <h2>FEP Configuration Maintenance</h2>
+      <h1 className="header">FEP Configuration Maintenance</h1>
     </header>
   );
 }

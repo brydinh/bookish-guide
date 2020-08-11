@@ -33,21 +33,23 @@ function ConfigForm() {
   }
 
   return (
-      <form className="App">
-        <h4>Add New Config</h4>
+      <form className= "form">
+        <h2>Add New Config</h2>
 
-        <label>Key 1:</label>
-        <select name="key1" ref={register({ required: true })}>
-          <option value="">Select...</option>
-        {key1s.map((option) => {
-              return (
+        <div className= "key1">
+          <label>Key 1:</label>
+          <select name="key1" ref={register({ required: true })}>
+            <option value="">Select...</option>
+              {key1s.map((option) => {
+                return (
                 <option key={option} value={option}>{option}</option>
-              );
-        })}
-        </select>
-        <ErrorMessage error={errors.key1} />
-        <br />
+                );
+              })}
+          </select>
+          <ErrorMessage error={errors.key1} />
+        </div>
 
+        <div className="key2">
         <label>Key 2:</label>
         <select name="key2"  ref={register({ required: true })}>
           <option value="">Select...</option>
@@ -58,8 +60,9 @@ function ConfigForm() {
         })}
         </select>
         <ErrorMessage error={errors.key2} />
-        <br />
+        </div>
 
+        <div className="key3">
         <label>Key 3:</label>
         <input
           name="minFloat"
@@ -68,13 +71,16 @@ function ConfigForm() {
         />
         <ErrorMessage error={errors.minFloat} />
 
+
         <input
           name="maxFloat"
           placeholder="Span"
           ref={register({ required: true, pattern: /^(\d*\.)?\d+$/i })}
         />
         <ErrorMessage error={errors.maxFloat} />
+        </div>
 
+        <div className="value">
         <label>Value:</label>
         <select name="value" ref={register({ required: true })}>
           <option value= "">Select...</option>
@@ -85,6 +91,7 @@ function ConfigForm() {
         })}
         </select>
         <ErrorMessage error={errors.value} />
+        </div>
 
         <button disabled={isSubmitting} className="subButton" onClick={handleSubmit(onSubmit)}>Add Config</button>
        </form>

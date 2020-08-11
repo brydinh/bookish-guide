@@ -15,8 +15,8 @@ function Configurations() {
   });
 
   return (
-    <div>
-      <h4>Configurations</h4>
+    <div className="list">
+      <h2>Configurations</h2>
       <ul>
         {configurations.map(config =>
         <li key = {config.config_id}>

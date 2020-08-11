@@ -5,16 +5,14 @@ import ConfigForm from "./ConfigForm";
 import ConfigList from "./ConfigList";
 import Footer from "./Footer";
 
-// TODO: Edit/Delete 
+// TODO: Edit/Delete
 function App() {
   return (
-    <div className="App">
-      <div className="App-header">
+    <div>
         <Header />
         <ConfigForm />
         <ConfigList />
         <Footer />
-      </div>
     </div>
   );
 }

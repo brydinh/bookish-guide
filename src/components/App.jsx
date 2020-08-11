@@ -5,6 +5,7 @@ import ConfigForm from "./ConfigForm";
 import ConfigList from "./ConfigList";
 import Footer from "./Footer";
 
+// TODO: Edit/Delete 
 function App() {
   return (
     <div className="App">

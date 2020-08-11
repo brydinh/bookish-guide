@@ -20,12 +20,12 @@ function ConfigForm() {
   // }
 
   // TODO Calculate the min/max float using formula
-
-  // TODO update list componenet as well
   function onSubmit(config) {
     axios.post("/configs", config)
       .then(res => {
-        console.log(res);
+        if(res.data === "Range Conflict"){
+          alert("Range Conflict");
+        }
       })
       .catch(err => {
         console.log(err);

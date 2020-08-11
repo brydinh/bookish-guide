@@ -1,35 +1,30 @@
-import React, {Component} from 'react';
+import React, { useState, useEffect } from "react";
 
-// TODO: change to hook
-class Configurations extends Component {
-  constructor() {
-    super();
-    this.state = {
-      configurations: []
-    }
+function Configurations() {
+  const [configurations, setConfigurations] = useState([]);
+
+  async function fetchData() {
+    const res = await fetch("/configs");
+    res
+      .json()
+      .then(res => setConfigurations(res))
   }
 
-  componentDidMount() {
-    fetch("/configs")
-      .then(res => res.json())
-      .then(configurations => this.setState({
-        configurations
-      }));
-  }
+  useEffect(() => {
+    fetchData();
+  });
 
-  render() {
-    return (
-      <div>
+  return (
+    <div>
       <h4>Configurations</h4>
       <ul>
-        {this.state.configurations.map(config =>
-          <li key = {config.config_id}>
-            {config.key1}: {config.key2} ({config.minfloat} - {config.maxfloat}) {config.value}
-          </li>)}
-      </ul>
-      </div>
-    );
-  }
+        {configurations.map(config =>
+        <li key = {config.config_id}>
+          {config.key1}: {config.key2} ({config.minfloat} - {config.maxfloat}) {config.value}
+        </li>)}
+    </ul>
+    </div>
+  )
 }
 
 export default Configurations;

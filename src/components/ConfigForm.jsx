@@ -4,18 +4,14 @@ import axios from "axios";
 
 import ErrorMessage from "./ErrorMessage";
 
-function ConfigForm(props) {
+function ConfigForm() {
   const key1s = window.Keys.key1s;
   const key2s =  window.Keys.key2s;
   const values = window.Keys.values;
 
-  const {
-    register,
-    handleSubmit,
-    errors,
-    formState: { isSubmitting }
-  } = useForm();
+  const {register, handleSubmit, errors, formState: { isSubmitting }} = useForm();
 
+  // TODO Async function for range check on front end?
   // const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
   //
   // const validateRange = async(value) => {
@@ -23,7 +19,7 @@ function ConfigForm(props) {
   //   // do query to database for ranges
   // }
 
-  // TODO Async function for range check on front end?
+  // TODO Calculate the min/max float using formula
 
   // TODO update list componenet as well
   function onSubmit(config) {

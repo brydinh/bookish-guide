@@ -6,6 +6,7 @@ body {
     sans-serif;
    background-color: #282c34;
    color: white;
+   font-size: calc(3px + 2vmin);
 }
 
 form {
@@ -52,6 +53,41 @@ ul {
 .header {
   margin-bottom: 100px;
 }
+
 .list{
+  background-color: #383e56;
+  padding: 20px;
+  border-radius: 30px;
   margin-bottom: 100px;
+  margin: 40px auto;
+  width: 700px;
+}
+.listItem {
+  width: 550px;
+  background-color: #251f44;
+  height: 50px;
+  margin: 30px auto;
+  border-radius: 5px;
+}
+.listItem p {
+  text-align: left;
+  padding: 10px;
+  position: relative;
+}
+
+.listItem p span {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+.editIcon {
+  position: absolute;
+  right: 50px;
+  top: 4px;
+  margin:
+}
+
+.trashIcon {
+bottom: 1px;
 }

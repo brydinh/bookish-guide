@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
-import ErrorMessage from "./ErrorMessage"
+import ErrorMessage from "./ErrorMessage";
 
 function ConfigForm(props) {
-  // TODO: Populate comboboxes via config file
-  const options1 = ["Accord", "Civic", "HR-V", "Odyssey", "Insight", "Pilot", "Passport"]
-  const options2 = ["V4", "V6", "V8"];
-  const options3 = ["Model1", "Model2", "Model3", "Model4", "Model1-6", "Model2-6"];
+  const key1s = window.Keys.key1s;
+  const key2s =  window.Keys.key2s;
+  const values = window.Keys.values;
 
   const {
     register,
@@ -26,7 +25,7 @@ function ConfigForm(props) {
 
   // TODO Async function for range check on front end?
 
-  // TODO Have POST reqs work w the website, updates the list as well
+  // TODO update list componenet as well
   function onSubmit(config) {
     axios.post("/configs", config)
       .then(res => {
@@ -44,9 +43,9 @@ function ConfigForm(props) {
         <label>Key 1:</label>
         <select name="key1" ref={register({ required: true })}>
           <option value="">Select...</option>
-        {options1.map((option) => {
+        {key1s.map((option) => {
               return (
-                <option value={option}>{option}</option>
+                <option key={option} value={option}>{option}</option>
               );
         })}
         </select>
@@ -56,15 +55,14 @@ function ConfigForm(props) {
         <label>Key 2:</label>
         <select name="key2"  ref={register({ required: true })}>
           <option value="">Select...</option>
-        {options2.map((option) => {
+        {key2s.map((option) => {
               return (
-                <option value={option}>{option}</option>
+                <option key={option} value={option}>{option}</option>
               );
         })}
         </select>
         <ErrorMessage error={errors.key2} />
         <br />
-
 
         <label>Key 3:</label>
         <input
@@ -74,7 +72,6 @@ function ConfigForm(props) {
         />
         <ErrorMessage error={errors.minFloat} />
 
-
         <input
           name="maxFloat"
           placeholder="Span"
@@ -82,13 +79,12 @@ function ConfigForm(props) {
         />
         <ErrorMessage error={errors.maxFloat} />
 
-
         <label>Value:</label>
         <select name="value" ref={register({ required: true })}>
           <option value= "">Select...</option>
-        {options3.map((option) => {
+        {values.map((option) => {
               return (
-                <option value={option}>{option}</option>
+                <option key={option} value={option}>{option}</option>
               );
         })}
         </select>

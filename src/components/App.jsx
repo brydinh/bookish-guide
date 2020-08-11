@@ -7,15 +7,11 @@ import Footer from "./Footer";
 
 function App() {
 
-  function addConfig(newConfig){
-    console.log(newConfig);
-  }
-
   return (
     <div className="App">
       <div className="App-header">
         <Header />
-        <ConfigForm onAdd={addConfig}/>
+        <ConfigForm />
         <ConfigList />
         <Footer />
       </div>

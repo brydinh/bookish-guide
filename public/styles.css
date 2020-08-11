@@ -5,16 +5,6 @@ body {
     sans-serif;
 }
 
-/* form {
-  position: relative;
-  width: 480px;
-  margin: 30px auto 20px auto;
-  background: #fff;
-  padding: 15px;
-  border-radius: 7px;
-  box-shadow: 0 1px 5px rgb(138, 137, 137);
-} */
-
 ul {
   list-style: none;
   padding: 0;
@@ -28,7 +18,7 @@ li {
   border-bottom: 1px dotted #777;
 }
 
-.App {
+ .App {
   text-align: center;
 }
 
@@ -43,6 +33,81 @@ li {
   color: white;
 }
 
-/* .Select {
-  background-color: black;
+
+form {
+  line-height: 2
+  margin: 0 auto;
+  margin: 30px auto 20px auto;
+  background: #050505;
+  padding: 20px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+
+h1 {
+  font-weight: 100;
+  color: white;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(79, 98, 148);
+}
+
+.form {
+  background: #0e101c;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.errorMessage {
+  color: #bf1650;
+  font-size: 14px;
+}
+
+textarea,
+input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid white;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+label {
+  line-height: 2;
+  text-align: left;
+  color: white;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.subButton {
+  display:block;
+  background: #ec5990;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 10px;
+}
+
+.subButton:hover {
+  background: #bf1650;
+}
+
+subButton:active {
+  transition: 0.3s all;
+  transform: translateY(3px);
+  border: 1px solid transparent;
+  opacity: 0.8;
+}
+/* 
+
+hr {
+  margin-top: 30px;
 } */

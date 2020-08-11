@@ -27,7 +27,6 @@ class Configurations extends Component {
             {config.key1}: {config.key2} ({config.minfloat} - {config.maxfloat}) {config.value}
           </li>)}
       </ul>
-
       </div>
     );
   }

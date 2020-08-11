@@ -2,140 +2,100 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
+import ErrorMessage from "./ErrorMessage"
+
 function ConfigForm(props) {
-  const[config, setConfig] = useState({
-    key1: "",
-    key2: "",
-    value: "",
-    minFloat: "",
-    maxFloat: ""
-  });
-
-  const {register, handleSubmit, watch, errors} = useForm();
-
-  // TODO Have POST reqs work w the website, updates the list as well
-  function handleChange(event) {
-   const {name, value} = event.target;
-    setConfig(prevConfig => {
-      return {
-        ...prevConfig,
-        [name] : value
-      };
-    });
-  }
-
-// TODO: refactor code to use only 1 function
-  function handleSelectChange(event) {
-    console.log(event);
-    setConfig(prevConfig =>{
-      return {
-        ...prevConfig,
-        key1: event.value
-      }
-    });
-  }
-
-  function handleSelectChange2(event) {
-    console.log(event);
-    setConfig(prevConfig =>{
-      return {
-        ...prevConfig,
-        key2: event.value
-      }
-    });
-  }
-
-  function handleSelectChange3(event) {
-    console.log(event);
-    setConfig(prevConfig =>{
-      return {
-        ...prevConfig,
-        value: event.value
-      }
-    });
-  }
-
   // TODO: Populate comboboxes via config file
-  const options1 = ["Accord", "Civic", "HR-V", "Odyssey", "Insight", "Pilot", "Passport"];
+  const options1 = ["Accord", "Civic", "HR-V", "Odyssey", "Insight", "Pilot", "Passport"]
   const options2 = ["V4", "V6", "V8"];
   const options3 = ["Model1", "Model2", "Model3", "Model4", "Model1-6", "Model2-6"];
 
-  function submitConfig(event) {
-    // TODO: Add Validations for form
+  const {
+    register,
+    handleSubmit,
+    errors,
+    formState: { isSubmitting }
+  } = useForm();
 
-    console.log(config);
-    // axios.post("/configs", config)
-    //   .then(res => {
-    //     console.log(res);
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
+  // const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+  //
+  // const validateRange = async(value) => {
+  //   await sleep(1000);
+  //   // do query to database for ranges
+  // }
 
-    // props.onAdd(config);
-    // event.preventDefault();
+  // TODO Async function for range check on front end?
+
+  // TODO Have POST reqs work w the website, updates the list as well
+  function onSubmit(config) {
+    axios.post("/configs", config)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   return (
-    <div>
-      <h4>Add New Config</h4>
-      <form>
+      <form className="App">
+        <h4>Add New Config</h4>
 
         <label>Key 1:</label>
-        <select name="key1">
-          <option>Select...</option>
+        <select name="key1" ref={register({ required: true })}>
+          <option value="">Select...</option>
         {options1.map((option) => {
               return (
                 <option value={option}>{option}</option>
               );
         })}
         </select>
-
+        <ErrorMessage error={errors.key1} />
         <br />
+
         <label>Key 2:</label>
-        <select name="key2">
-          <option>Select...</option>
+        <select name="key2"  ref={register({ required: true })}>
+          <option value="">Select...</option>
         {options2.map((option) => {
               return (
                 <option value={option}>{option}</option>
               );
         })}
         </select>
-
+        <ErrorMessage error={errors.key2} />
         <br />
+
 
         <label>Key 3:</label>
         <input
           name="minFloat"
-          onChange={handleChange}
-          value={config.minFloat}
           placeholder="Center"
-          ref={register({ required: true})}
+          ref={register({ required: true, pattern: /^(\d*\.)?\d+$/i })}
         />
+        <ErrorMessage error={errors.minFloat} />
+
 
         <input
           name="maxFloat"
-          onChange={handleChange}
-          value={config.maxFloat}
           placeholder="Span"
-          ref={register({ required: true})}
+          ref={register({ required: true, pattern: /^(\d*\.)?\d+$/i })}
         />
-        <br />
+        <ErrorMessage error={errors.maxFloat} />
+
 
         <label>Value:</label>
-        <select name="value">
-          <option>Select...</option>
+        <select name="value" ref={register({ required: true })}>
+          <option value= "">Select...</option>
         {options3.map((option) => {
               return (
                 <option value={option}>{option}</option>
               );
         })}
         </select>
-        <br />
+        <ErrorMessage error={errors.value} />
 
-        <button onClick={handleSubmit(submitConfig)}>Add</button>
-      </form>
-    </div>
+        <button disabled={isSubmitting} className="subButton" onClick={handleSubmit(onSubmit)}>Add Config</button>
+       </form>
   )
 }
 

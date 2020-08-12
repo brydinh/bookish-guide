@@ -21,8 +21,7 @@ function ConfigList() {
   });
 
 // TODO fix flipmove
-// TODO: Add delete confirmation dialog
-  function deleteConfig(id) {
+function deleteConfig(id) {
     console.log("Delete");
     axios.delete("/configs/"+parseInt(id))
       .then(res => {

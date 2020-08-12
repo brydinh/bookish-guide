@@ -5,7 +5,7 @@ import ConfigForm from "./ConfigForm";
 import ConfigList from "./ConfigList";
 import Footer from "./Footer";
 
-// TODO: cleanup UI and delete confirmation
+// TODO: cleanup UI, clean up css, filter, export
 function App() {
   return (
     <div>

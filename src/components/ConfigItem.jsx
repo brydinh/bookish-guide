@@ -4,8 +4,11 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import React, { useState, forwardRef } from "react";
+import Modal from "react-modal";
 
 import EditForm from "./EditForm";
+
+Modal.setAppElement("#root");
 
 function ConfigItem(props) {
   library.add(faTrash);
@@ -26,12 +29,20 @@ function ConfigItem(props) {
           <FontAwesomeIcon className="trashIcon" icon="trash" onClick={() => props.onDelete(config_id)}/>
         </span>
      </p>
-     <EditForm
-      show = {showEdit === config_id}
-      onHide = {() => setState(0)}
-      config = {props.config}
-      onSubmit = {(config) => props.onEdit(config, config_id)}
-     />
+     <Modal
+      isOpen={showEdit === config_id}
+      onRequestClose = {() => setState(0)}
+      className="modal"
+      >
+      <EditForm
+        onHide = {() => setState(0)}
+        config = {props.config}
+        onSubmit = {function(config) {
+           setState(0);
+           props.onEdit(config, config_id);
+         }}
+        />
+    </Modal>
   </div>
   )
 }

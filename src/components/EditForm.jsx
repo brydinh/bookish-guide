@@ -20,8 +20,7 @@ function EditForm(props) {
   }
 
   return (
-    <React.Fragment>
-    { props.show && (
+   (
       <form className= "form modal">
         <h2>Edit Config</h2>
 
@@ -87,8 +86,7 @@ function EditForm(props) {
         <button disabled={isSubmitting} className="subButton" onClick={handleSubmit(onSubmit)}>Edit Config</button>
         <button onClick={props.onHide}>Close Form</button>
        </form>
-     )}
-      </React.Fragment>
+     )
   )
 }
 

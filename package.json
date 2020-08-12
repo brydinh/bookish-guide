@@ -15,7 +15,8 @@
     "react-dom": "^16.13.1",
     "react-flip-move": "^3.0.4",
     "react-hook-form": "^6.3.1",
-    "react-scripts": "^3.4.2"
+    "react-modal": "^3.11.2",
+    "react-scripts": "^3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",

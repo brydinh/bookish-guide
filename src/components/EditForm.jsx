@@ -9,21 +9,14 @@ function EditForm(props) {
   const key2s =  window.Keys.key2s;
   const values = window.Keys.values;
 
+  const {config_id, key1, key2, minfloat, maxfloat, value} = props.config;
+
   const {register, handleSubmit, errors, formState: { isSubmitting }} = useForm();
 
   // TODO Refactor to only use one component instead of two
-  // TODO Calculate the min/max float using formula
+  // TODO Calculate center and span using min/max float
   function onSubmit(config) {
-    console.log("Edit");
-    // axios.post("/configs", config)
-    //   .then(res => {
-    //     if(res.data === "Range Conflict"){
-    //       alert("Range Conflict");
-    //     }
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
+    props.onSubmit(config);
   }
 
   return (
@@ -34,7 +27,7 @@ function EditForm(props) {
 
         <div className= "key1">
           <label>Key 1:</label>
-          <select name="key1" ref={register({ required: true })}>
+          <select defaultValue={key1} name="key1" ref={register({ required: true })}>
             <option value="">Select...</option>
               {key1s.map((option) => {
                 return (
@@ -47,7 +40,7 @@ function EditForm(props) {
 
         <div className="key2">
         <label>Key 2:</label>
-        <select name="key2"  ref={register({ required: true })}>
+        <select defaultValue={key2} name="key2"  ref={register({ required: true })}>
           <option value="">Select...</option>
         {key2s.map((option) => {
               return (
@@ -62,6 +55,7 @@ function EditForm(props) {
         <label>Key 3:</label>
         <input
           name="minFloat"
+          defaultValue={minfloat}
           placeholder="Center"
           ref={register({ required: true, pattern: /^(\d*\.)?\d+$/i })}
         />
@@ -70,6 +64,7 @@ function EditForm(props) {
 
         <input
           name="maxFloat"
+          defaultValue={maxfloat}
           placeholder="Span"
           ref={register({ required: true, pattern: /^(\d*\.)?\d+$/i })}
         />
@@ -78,7 +73,7 @@ function EditForm(props) {
 
         <div className="value">
         <label>Value:</label>
-        <select name="value" ref={register({ required: true })}>
+        <select defaultValue={value} name="value" ref={register({ required: true })}>
           <option value= "">Select...</option>
         {values.map((option) => {
               return (

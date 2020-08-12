@@ -11,34 +11,29 @@ function ConfigItem(props) {
   library.add(faTrash);
   library.add(faEdit);
 
+  const {config_id, key1, key2, minfloat, maxfloat, value} = props.config;
+
   const [showEdit, setState] = useState(0);
 
-  function getEdit(value) {
-    setState(value);
-  }
-
-  function hideEdit () {
-    setState(0);
-  }
-
   return (
-    <div className="listItem" key={props.config.config_id}>
+    <div className="listItem" key={config_id}>
       <p>
-        {props.config.key1}: {props.config.key2} ({props.config.minfloat} - {props.config.maxfloat}) {props.config.value}
+        {key1}: {key2} ({minfloat} - {maxfloat}) {value}
         <span>
-          <FontAwesomeIcon className="editIcon" icon="edit" onClick={() => getEdit(props.config.config_id)}/>
+          <FontAwesomeIcon className="editIcon" icon="edit" onClick={() => setState(config_id)}/>
         </span>
         <span>
-          <FontAwesomeIcon className="trashIcon" icon="trash" onClick={() => props.onDelete(props.config.config_id)}/>
+          <FontAwesomeIcon className="trashIcon" icon="trash" onClick={() => props.onDelete(config_id)}/>
         </span>
      </p>
      <EditForm
-      show = {showEdit === props.config.config_id}
-      onHide={() => hideEdit()}
-      config={props.config}
+      show = {showEdit === config_id}
+      onHide = {() => setState(0)}
+      config = {props.config}
+      onSubmit = {(config) => props.onEdit(config, config_id)}
      />
   </div>
-)
+  )
 }
 
 export default ConfigItem;

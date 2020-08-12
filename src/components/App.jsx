@@ -5,7 +5,7 @@ import ConfigForm from "./ConfigForm";
 import ConfigList from "./ConfigList";
 import Footer from "./Footer";
 
-// TODO: Edit/Delete
+// TODO: Edit screen and delete confirmation
 function App() {
   return (
     <div>

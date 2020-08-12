@@ -4,29 +4,33 @@ import axios from "axios";
 
 import ErrorMessage from "./ErrorMessage";
 
-function ConfigForm() {
+function EditForm(props) {
   const key1s = window.Keys.key1s;
   const key2s =  window.Keys.key2s;
   const values = window.Keys.values;
 
   const {register, handleSubmit, errors, formState: { isSubmitting }} = useForm();
 
+  // TODO Refactor to only use one component instead of two
   // TODO Calculate the min/max float using formula
   function onSubmit(config) {
-    axios.post("/configs", config)
-      .then(res => {
-        if(res.data === "Range Conflict"){
-          alert("Range Conflict");
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    console.log("Edit");
+    // axios.post("/configs", config)
+    //   .then(res => {
+    //     if(res.data === "Range Conflict"){
+    //       alert("Range Conflict");
+    //     }
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
   }
 
   return (
-      <form className= "form">
-        <h2>Add New Config</h2>
+    <React.Fragment>
+    { props.show && (
+      <form className= "form modal">
+        <h2>Edit Config</h2>
 
         <div className= "key1">
           <label>Key 1:</label>
@@ -85,9 +89,12 @@ function ConfigForm() {
         <ErrorMessage error={errors.value} />
         </div>
 
-        <button disabled={isSubmitting} className="subButton" onClick={handleSubmit(onSubmit)}>Add Config</button>
+        <button disabled={isSubmitting} className="subButton" onClick={handleSubmit(onSubmit)}>Edit Config</button>
+        <button onClick={props.onHide}>Close Form</button>
        </form>
+     )}
+      </React.Fragment>
   )
 }
 
-export default ConfigForm;
+export default EditForm;

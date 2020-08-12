@@ -21,7 +21,7 @@ function EditForm(props) {
 
   return (
    (
-      <form className= "form modal">
+      <form className= "modal">
         <h2>Edit Config</h2>
 
         <div className= "key1">

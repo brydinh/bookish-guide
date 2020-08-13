@@ -25,7 +25,7 @@ function ConfigForm() {
   }
 
   return (
-      <form className= "form">
+      <form className= "container">
         <h2>Add New Config</h2>
 
         <div className= "key1">
@@ -84,6 +84,7 @@ function ConfigForm() {
         </select>
         <ErrorMessage error={errors.value} />
         </div>
+
 
         <button disabled={isSubmitting} className="subButton" onClick={handleSubmit(onSubmit)}>Add Config</button>
        </form>

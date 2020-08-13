@@ -9,23 +9,35 @@ body {
   font-size: calc(3px + 2vmin);
 }
 
-form {
-  margin: 0 auto;
-  width: 20%;
+ form label {
+   display: inline-block;
+   width: 100px;
+   text-align: right;
+}
+
+.modal label {
+   display: inline-block;
+   width: 100px;
+   text-align: right;
+}
+
+.container {
+  width: 23%;
   padding: 20px;
   border-radius: 30px;
   box-shadow: 0 10px 30px 0 rgba(127, 127, 127, 0.8);
   background-color: white;
   color: black;
-  margin-bottom: 100px;
 }
 
-ul {
-  list-style: none;
-  margin: auto;
-  padding: 0;
-  width: 30;
+
+ form input {
+    display: inline-block;
+		text-align: left;
+		float: right;
 }
+
+
 
 .errorMessage {
   color: #bf1650;
@@ -42,9 +54,9 @@ ul {
 }
 
 .key3 {
-  padding-bottom: 20px;
-}
+  padding-bottom: 40px;
 
+}
 .value {
   padding-bottom: 20px;
 }
@@ -65,7 +77,7 @@ ul {
 .listItem {
   width: 550px;
   background-color: #251f44;
-  height: 50px;
+  height: 55px;
   margin: 30px auto;
   border-radius: 5px;
 }
@@ -89,17 +101,18 @@ ul {
   margin:
 }
 
+form {
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+
 .modal {
   position: fixed;
   margin: auto;
-  width: 20%;
-  height: 400px;
-  border-radius: 30px;
+  width: 23%;
+  height: 350px;
   top: 10%;
   right: 10%;
   bottom: 10%;
   left: 10%;
-  box-shadow: 0 10px 30px 0 rgba(127, 127, 127, 0.8);
-  background: rgba(255, 255, 255);
-  color: black;
 }

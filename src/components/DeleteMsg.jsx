@@ -6,7 +6,7 @@ function DeleteMsg(props) {
 
   return (
    (
-      <div className = "deleteMsg">
+      <div className = "container modal">
         <h2>Delete Config</h2>
         <p>Are you sure you want to delete {key1}: {key2} ({minfloat} - {maxfloat}) {value}?</p>
         <button onClick ={props.onDelete}>Delete Config</button>

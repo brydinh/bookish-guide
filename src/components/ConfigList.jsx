@@ -48,7 +48,6 @@ function deleteConfig(id) {
   return (
     <div className="list">
       <h2>Configurations</h2>
-        <ul>
           {configurations.map(config =>
             <ConfigItem
               key = {config.config_id}
@@ -57,7 +56,6 @@ function deleteConfig(id) {
               config = {config}
             />
           )}
-        </ul>
     </div>
   )
 }

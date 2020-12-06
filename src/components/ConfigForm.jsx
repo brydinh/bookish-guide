@@ -17,6 +17,8 @@ function ConfigForm() {
       .then(res => {
         if(res.data === "Range Conflict"){
           alert("Range Conflict");
+        } else {
+          console.log(res.data);
         }
       })
       .catch(err => {

@@ -22,7 +22,7 @@ body {
 }
 
 .container {
-  width: 23%;
+  width: 20%;
   padding: 20px;
   border-radius: 30px;
   box-shadow: 0 10px 30px 0 rgba(127, 127, 127, 0.8);
@@ -31,13 +31,11 @@ body {
 }
 
 
- form input {
+form input select {
     display: inline-block;
 		text-align: left;
 		float: right;
 }
-
-
 
 .errorMessage {
   color: #bf1650;
@@ -55,7 +53,6 @@ body {
 
 .key3 {
   padding-bottom: 40px;
-
 }
 .value {
   padding-bottom: 20px;
@@ -75,7 +72,7 @@ body {
 }
 
 .listItem {
-  width: 550px;
+  width: 650px;
   background-color: #251f44;
   height: 55px;
   margin: 30px auto;
@@ -109,7 +106,7 @@ form {
 .modal {
   position: fixed;
   margin: auto;
-  width: 23%;
+  width: 20%;
   height: 350px;
   top: 10%;
   right: 10%;

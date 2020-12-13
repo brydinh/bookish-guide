@@ -11,9 +11,7 @@ function ConfigList() {
 
   async function fetchData() {
     const res = await fetch("/configs");
-    res
-      .json()
-      .then(res => setConfigurations(res))
+    res.json().then(res => setConfigurations(res));
   }
 
   useEffect(() => {

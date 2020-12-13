@@ -1,5 +1,5 @@
 {
-  "name": "fep-website-frontend",
+  "name": "valve-frontend",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000",
@@ -11,11 +11,10 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
     "axios": "^0.21.0",
-    "prototype2-frontend": "file:prototype2-frontend-0.1.0.tgz",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-flip-move": "^3.0.4",
-    "react-hook-form": "^6.12.2",
+    "react-hook-form": "^6.13.0",
     "react-modal": "^3.12.1",
     "react-scripts": "^4.0.1"
   },

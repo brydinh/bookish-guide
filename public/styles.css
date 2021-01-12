@@ -9,15 +9,14 @@ body {
 }
 
 .header {
-  margin-top: 90px;
+  margin-top: 30px;
   font-weight: bold;
   font-size: 70px;
 }
 
 .btn-panel {
   width: 25em;
-  padding-left: 55px;
-  padding-right: 55px;
+  padding: 0 55px;
   margin: 70px auto;
   border-radius: 30px;
   background-color: white;
@@ -29,6 +28,47 @@ body {
     padding: 30px;
     border-radius:10px !important;
 }
+
+.rdp-picker {
+  margin: 0 auto;
+ }
+
+.container {
+  color: black;
+}
+
+.day-container{
+  padding-right: 15px;
+}
+
+.modal{
+  /* max-width: 55em;
+  max-height: 35em;
+  border-radius: 30px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: white;
+  border-radius: 30px;
+  text-align: center;
+  left: 13%; */
+  color: black;
+
+}
+
+/* .modal button{
+  color: #444;
+  border-color: #444;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.modal p{
+  color: #444;
+  font-weight: bold;
+} */
+
+/* .week-picker button{
+  font-size: 15px;
+} */
 
 /*
 .errorMessage {

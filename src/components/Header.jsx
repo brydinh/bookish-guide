@@ -3,7 +3,7 @@ import React from "react";
 function Header() {
   return (
     <header>
-      <h1 className="header">Valve Automation 3000</h1>
+      <h1 className="header">Stallion "GA-097 Spigot"</h1>
     </header>
   );
 }

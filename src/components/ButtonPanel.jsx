@@ -9,6 +9,11 @@ function ButtonPanel() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  function onSubmit(config) {
+    console.log("Submitted form");
+    setShow(false);
+  }
+
   return (
     <div>
       <div className="btn-group-vertical btn-panel">
@@ -26,7 +31,7 @@ function ButtonPanel() {
             </Modal.Header>
             <Modal.Body><ScheduleForm/></Modal.Body>
             <Modal.Footer>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={onSubmit}>
               Submit Schedule
             </Button>
             <Button variant="secondary" onClick={handleClose}>
@@ -34,7 +39,6 @@ function ButtonPanel() {
             </Button>
             </Modal.Footer>
           </Modal>
-
 
           <button
               type="button"
